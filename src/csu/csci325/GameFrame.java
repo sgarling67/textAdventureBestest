@@ -11,7 +11,7 @@ public class GameFrame extends JPanel {
         gf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gf.add(new DialogAndButtons());
         gf.pack();
-        gf.setSize(1416,792);
+        gf.setSize(1416, 792);
         gf.setVisible(true);
     }
 }

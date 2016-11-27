@@ -6,7 +6,13 @@ package csu.csci325;
 public class outputPicture {
     public static String getImage(String scene){
         switch(scene){
+            case "title":
+                return "pictures/castle_title-01.png";
+
             case "game over":
+                return "pictures/cave_gameEnd-01.png";
+
+            case "crystal cave":
               return "pictures/crystal_cavescene.png";
 
             case "knight scene one male":
@@ -30,7 +36,7 @@ public class outputPicture {
             case "healthy tree scene":
                 return "pictures/lightscenetree_fae.png";
 
-            case "title":
+            case "castle beginning":
                 return "pictures/castle_begin-01.png";
 
             default:
