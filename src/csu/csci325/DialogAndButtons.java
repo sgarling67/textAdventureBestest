@@ -3,9 +3,15 @@ package csu.csci325;
 /**
  * Created by Carla Nayeli on 11/26/2016.
  */
+import sun.applet.Main;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import javax.sound.sampled.*;
 import javax.swing.*;
 
 public class DialogAndButtons extends JPanel implements ActionListener{
