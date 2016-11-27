@@ -9,7 +9,7 @@ public class GameFrame extends JPanel {
     public static void main(String[] args) {
         JFrame gf = new JFrame("Text Adventure Bestest!");
         gf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gf.add(new project2());
+        gf.add(new DialogAndButtons());
         gf.pack();
         gf.setSize(1416,792);
         gf.setVisible(true);
