@@ -6,6 +6,8 @@ package csu.csci325;
 public class outputPicture {
     public static String getImage(String scene){
         switch(scene){
+            case "burning village end":
+                return "pictures/castle_fire_gameover-01.png";
             case "title":
                 return "pictures/castle_title-01.png";
 

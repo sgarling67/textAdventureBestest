@@ -11,8 +11,10 @@ import javax.swing.*;
 public class DialogAndButtons extends JPanel implements ActionListener{
 
     JLabel label;
+    JLabel secondLineLabel;
     JButton button;
     JButton button1;
+    JButton button2;
 
     ImageIcon mBackground;
 
@@ -27,6 +29,7 @@ public class DialogAndButtons extends JPanel implements ActionListener{
         setSize(1416,792);
 
         label = new JLabel();
+        secondLineLabel = new JLabel();
 
         button = new JButton("Next");
         button.setBounds(100, 130, 100, 30);
@@ -36,12 +39,17 @@ public class DialogAndButtons extends JPanel implements ActionListener{
         button1.setBounds(300, 130, 100, 30);
         button1.addActionListener(this);
 
+        button2 = new JButton();
+        button2.setBounds(500, 130, 200, 30);
+        button2.addActionListener(this);
+
         imageName = outputPicture.getImage("title");
         mBackground = new ImageIcon(imageName);
         update();
         resizeBackground();
 
         add(label);
+        add(secondLineLabel);
         add(button);
     }
 
@@ -131,6 +139,7 @@ public class DialogAndButtons extends JPanel implements ActionListener{
             case 5:
                 if(e.getSource() == button){
                     label.setText("<html><h1><center>They request your services to rid the kingdom of this terrible menace. Will you accept?</center></h1></html>");
+                    secondLineLabel.setText("");
                     button1.setVisible(true);
                     button.setText("Yes");
                     button1.setText("No");
@@ -162,7 +171,7 @@ public class DialogAndButtons extends JPanel implements ActionListener{
                 break;
 
             case 9:
-                if(e.getSource() ==button){
+                if(e.getSource() == button){
                     button1.setVisible(false);
                     label.setText("<html><h1><center>FAE: Thank you so much. That is really kind of you!</center></h1></html>");
                     button.setText("Next");
@@ -214,7 +223,7 @@ public class DialogAndButtons extends JPanel implements ActionListener{
                     update();
                     resizeBackground();
                 }
-                if (e.getSource() ==button1){
+                if (e.getSource() == button1){
                     button.setVisible(false);
                     button1.setVisible(false);
                     label.setText("<html><h1><center>Game Over!</center></h1></html>");
@@ -253,7 +262,9 @@ public class DialogAndButtons extends JPanel implements ActionListener{
             // Splits the dialog into their two pieces now
             case 15:
                 if(e.getSource() == button){
-                    label.setText("<html><h1><center>You just received notice from the king and queen of a dragon that has been ransacking the edge of the surrounding villages.</center></h1></html>");
+                    label.setText("<html><h1><center>You just received notice from the king and queen of a dragon that has been ransacking</center></h1></html>");
+                    secondLineLabel.setBounds(170, 60, 1300, 30);
+                    secondLineLabel.setText("<html><h1><center>the edge of the surrounding villages.</center></h1></html>");
                     button1.setVisible(false);
                     button.setText("Next");
                     whichPart = 5;
@@ -370,9 +381,10 @@ public class DialogAndButtons extends JPanel implements ActionListener{
 
             // More of the knight code
             case 23:
-                if(e.getSource() ==button){
+                if(e.getSource() == button){
                     button1.setVisible(false);
-                    label.setText("<html><h1><center>You are informed of the location of the dragon's cave in the nearby mountains. You set out immediately.</center></h1></html>");
+                    label.setText("<html><h1><center>You are informed of the location of the dragon's cave in the nearby mountains.</center></h1></html>");
+                    secondLineLabel.setText("<html><h1><center>You set out immediately.</center></h1></html>");
                     button.setText("Next");
                     whichPart = 24;
                 }
@@ -388,17 +400,168 @@ public class DialogAndButtons extends JPanel implements ActionListener{
                 break;
 
             case 24:
-                if(e.getSource() ==button){
-                    label.setText("<html><h1><center>After a few hours wandering the woods, you managed to find the cave. You walk towards the cave entrance.</center></h1></html>");
+                if(e.getSource() == button){
+                    label.setText("<html><h1><center>After a few hours wandering the woods, you managed to find the cave.</center></h1></html>");
+                    secondLineLabel.setText("<html><h1><center>You look into the cave and see a bright glow coming from around a corner.</center></h1></html>");
                     whichPart = 25;
                 }
                 break;
 
             case 25:
-                if(e.getSource() ==button){
-                    label.setText("<html><h1><center>You look into the cave and see a bright glow coming from around a corner. You walk right up to the corner and listen. You hear deep breathing and get a strange feeling in your gut.</center></h1></html>");
+                if(e.getSource() == button){
+                    label.setText("<html><h1><center>You walk right up to the corner and listen. You hear deep breathing and get a strange feeling</center></h1></html>");
+                    secondLineLabel.setText("<html><h1><center>in your gut.</center></h1></html>");
                     whichPart = 26;
                 }
+                break;
+
+            case 26:
+                if(e.getSource() == button){
+                    button1.setVisible(true);
+                    label.setText("<html><h1><center>Do you wish to enter the cave?</center></h1></html>");
+                    secondLineLabel.setText("");
+                    button.setBounds(100, 130, 200, 30);
+                    button.setText("I am a knight of my word.");
+                    button1.setText("HECK NO!!!");
+                    whichPart = 27;
+                }
+                break;
+
+            case 27:
+                if(e.getSource() == button){
+                    button1.setVisible(false);
+                    label.setText("<html><h1><center>Everything appears to be normal...</center></h1></html>");
+                    button.setBounds(100, 130, 100, 30);
+                    button.setText("Next");
+                    whichPart = 28;
+                    imageName = outputPicture.getImage("crystal cave");
+                    mBackground = new ImageIcon(imageName);
+                    update();
+                    resizeBackground();
+                }
+                if(e.getSource() == button1) {
+                    button.setVisible(false);
+                    button1.setVisible(false);
+                    label.setText("<html><h1><center>Game Over!</center></h1></html>");
+                    imageName = outputPicture.getImage("game over");
+                    mBackground = new ImageIcon(imageName);
+                    update();
+                    resizeBackground();
+                }
+                break;
+
+            case 28:
+                    if(gender.equals("female")) {
+                        whichPart = 34;
+                    } else if(gender.equals("male")){
+                        whichPart = 35;
+                    }
+                break;
+
+            case 29:
+                if(e.getSource() == button){
+                    button1.setVisible(true);
+                    add(button2);
+                    button2.setVisible(true);
+                    label.setText("<html><h1><center>What will you do, Knight? Fight, run, or work with the dragon?</center></h1></html>");
+                    button.setText("Fight!");
+                    button1.setText("RUN!");
+                    button2.setText("Work with the dragon.");
+                    whichPart = 30;
+                }
+                break;
+
+            case 30:
+                if(e.getSource() == button){
+                    button1.setVisible(false);
+                    button2.setVisible(false);
+                    label.setText("<html><h1><center>After a bit, you successfully killed the dragon!</center></h1></html>");
+                    button.setText("Next");
+                    if(gender.equals("male")){
+                        whichPart = 32;
+                    } else if(gender.equals("female")) {
+                        whichPart = 36;
+                    }
+
+                }
+                if(e.getSource() == button1){
+                    button1.setVisible(false);
+                    button2.setVisible(false);
+                    label.setText("<html><h1><center>You run away and knowing you can't go back to the kingdom, you make a home in the woods.</center></h1></html>");
+                    button.setText("Next");
+                    whichPart = 31;
+                }
+                if(e.getSource() == button2){
+                button1.setVisible(false);
+                button2.setVisible(false);
+                label.setText("<html><h1><center>You have turn sides and joined with the dragon. You both go and burn the village...</center></h1></html>");
+                button.setText("Next");
+                whichPart = 33;
+            }
+                break;
+
+            case 31:
+                if(e.getSource() == button){
+                    imageName = outputPicture.getImage("game over");
+                    mBackground = new ImageIcon(imageName);
+                    update();
+                    resizeBackground();
+                }
+                break;
+
+            case 32:
+                if(e.getSource() == button){
+                    label.setText("<html><h1><center>You come back to the kingdom a hero! Congratulations!</center></h1></html>");
+                    button.setVisible(false);
+                    imageName = outputPicture.getImage("knight scene one male");
+                    mBackground = new ImageIcon(imageName);
+                    update();
+                    resizeBackground();
+                }
+                break;
+
+            case 33:
+                if(e.getSource() == button){
+                    label.setText("");
+                    button.setVisible(false);
+                    imageName = outputPicture.getImage("burning village end");
+                    mBackground = new ImageIcon(imageName);
+                    update();
+                    resizeBackground();
+                }
+                break;
+
+            case 34:
+                if(e.getSource() == button) {
+                    label.setText("<html><h1><center>A ferocious roar shredded the silence, and the dragon appeared.</center></h1></html>");
+                    button.setText("Next");
+                    whichPart = 29;
+                    imageName = outputPicture.getImage("knight cave scene female");
+                    mBackground = new ImageIcon(imageName);
+                    update();
+                    resizeBackground();
+                }
+                break;
+
+            case 35:
+                if(e.getSource() == button) {
+                    label.setText("<html><h1><center>A ferocious roar shredded the silence, and the dragon appeared.</center></h1></html>");
+                    button.setText("Next");
+                    whichPart = 29;
+                    imageName = outputPicture.getImage("knight cave scene male");
+                    mBackground = new ImageIcon(imageName);
+                    update();
+                    resizeBackground();
+                }
+                break;
+
+            case 36:
+                label.setText("<html><h1><center>You come back to the kingdom a hero! Congratulations!</center></h1></html>");
+                button.setVisible(false);
+                imageName = outputPicture.getImage("knight scene one female");
+                mBackground = new ImageIcon(imageName);
+                update();
+                resizeBackground();
                 break;
         }
     }
