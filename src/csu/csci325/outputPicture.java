@@ -24,7 +24,7 @@ public class outputPicture {
                 return "pictures/castle_female.png";
 
             case "knight cave scene male":
-                return "pictures/cave_with_CD_male.png";
+                return "pictures/cave_ with_CD_male.png";
 
             case "knight cave scene female":
                 return "pictures/cave_with_WD_female.png";
